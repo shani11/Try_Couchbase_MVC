@@ -1,0 +1,51 @@
+﻿@using Couchbase_TravelApp.Models
+@model IEnumerable<Route>
+@{
+    ViewData["Title"] = "GetFlights";
+}
+
+<h1>GetFlights</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="from">Airport Or City</label>
+        <input type="text" placeholder="From" name="from">
+        <input type="text" placeholder="To" name="to">
+    </div>
+    
+    <div class="form-group">
+        <label for="leave">Travel Dates</label>
+        <input type="date" placeholder="Leave" name="leave">
+
+    </div>
+    <div class="form-group">
+        
+        <button class="btn btn-primary" type="submit" value="Search">Find Flight<i class="fa fa-search"></i></button>
+    </div>
+
+
+</form>
+
+<div class="container">
+    @if (Model.ToList().Count > 0)
+    {
+        <table class="table">
+            <tr>
+                <th>Flight Nmae</th>
+                <th>Price</th>
+                <th>Time</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>@item.Time</td>
+                </tr>
+            }
+        </table>
+
+    }
+</div>
+
+

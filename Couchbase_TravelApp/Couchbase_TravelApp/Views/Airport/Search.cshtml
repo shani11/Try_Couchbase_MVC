@@ -1,0 +1,33 @@
+﻿@using Couchbase_TravelApp.Models
+@model IEnumerable<Airport>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search</h1>
+<!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+
+<form >
+    <div class="form-group">
+        <input type="text" placeholder="Search Airport" name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+   
+</form>
+
+@if (Model.ToList().Count>0)
+{
+    foreach (var item in Model)
+    {
+<ul>
+    <li>
+       @item.Airportname
+    </li>
+</ul>
+    }
+
+}
+

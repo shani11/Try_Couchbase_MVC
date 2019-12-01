@@ -1,0 +1,33 @@
+﻿
+@model List<Object>
+
+@{
+    ViewData["Title"] = "SearhAddress";
+}
+
+<h1>SearhAddress</h1>
+
+<form method="get">
+    <div class="form-group">
+        <label for="from">Address Or Content</label>
+        <input type="text" placeholder="Address or Content" name="address">
+
+    </div>
+    <div class="form-group">
+
+        <button class="btn btn-primary" type="submit" value="Search">Search<i class="fa fa-search"></i></button>
+    </div>
+</form>
+
+@if (Model.ToList().Count > 0)
+{
+    foreach (var item in Model)
+    {
+        <ul>
+            <li>
+                @item
+            </li>
+        </ul>
+    }
+
+}
